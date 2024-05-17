@@ -9,6 +9,8 @@ const commentRouter = require("./routes/comment")
 const multer = require("multer")
 const path = require("path")
 const cookieParser = require("cookie-parser")
+const cors = require("cors")
+
 
 
 
@@ -29,6 +31,7 @@ mongoose.connect(process.env.STRING)
 
 //middlewares
 app.use(express.json())
+app.use(cors())
 app.use(cookieParser())
 app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
